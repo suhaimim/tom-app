@@ -17,7 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('karkun_name');
             $table->foreignId('mohallah_id');
-            $table->string('karkun_id');
+            $table->foreignId('karkun_id');
+            // $table->string('karkun_id');
             $table->string('karkun_phone')->nullable();
             $table->string('bt_address')->nullable(); 
             $table->string('bt_duration');
@@ -43,6 +44,7 @@ return new class extends Migration
             $table->date('bt_mexp_date')->nullable(); 
             $table->string('bt_mexp_route')->nullable(); 
             $table->string('bt_mexp_relation')->nullable(); 
+            $table->string('bt_mexp_notes')->nullable(); 
             $table->string('bt_appr1_name')->nullable(); 
             $table->date('bt_appr1_date')->nullable(); 
             $table->string('bt_appr1_rem')->nullable(); 

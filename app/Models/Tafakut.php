@@ -40,6 +40,7 @@ class Tafakut extends Model
         'bt_mexp_date',
         'bt_mexp_route',
         'bt_mexp_relation',
+        'bt_mexp_notes',
         'bt_appr1_name',
         'bt_appr1_date',
         'bt_appr1_rem',
