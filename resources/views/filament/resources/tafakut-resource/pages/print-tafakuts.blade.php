@@ -11,8 +11,18 @@
             @foreach ($record->all() as $item)
             <tbody class="divide-y whitespace-nowrap">
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>NAMA (MYKAD):</strong> {{ $item->karkun->kkname}}</td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4"><strong>GELARAN (JIKA ADA):</strong>  {{ $item->karkun_name}} </td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>NAMA (MYKAD):</strong>  </div>
+                            <div>{{ $item->karkun->kkname}}</div>
+                        </div>  
+                    </td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>GELARAN (JIKA ADA):</strong>  </div>
+                            <div>{{ $item->karkun_name}}</div>
+                        </div> 
+                    </td>
                 </tr>
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
@@ -21,7 +31,12 @@
                             <div>{{ $item->mohallah->halqah->induk->markaz->mname}}</div>
                         </div>  
                     </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4"><strong>HALQAH:</strong> {{ $item->mohallah->halqah->hname}}</td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>HALQAH:</strong>  </div>
+                            <div>{{ $item->mohallah->halqah->hname}}</div>
+                        </div> 
+                    </td>
                 </tr>
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
@@ -30,7 +45,12 @@
                             <div>{{ $item->mohallah->sname}}</div>
                         </div> 
                     </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4"><strong>ALAMAT RUMAH:</strong> {{ $item->bt_address}} </td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>ALAMAT RUMAH:</strong>  </div>
+                            <div>{{ $item->bt_address}}</div>
+                        </div> 
+                    </td>
                 </tr>
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
@@ -39,7 +59,16 @@
                             <div>{{ $item->bt_duration}}</div>
                         </div>  
                     </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>UMUR:</strong> - </td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>UMUR:</strong>  </div>
+                            <div>
+                            {{
+                                date('Y') - (1900 + substr($item->karkun->kkid,0,2))
+                            }}
+                            </div>
+                        </div>  
+                    </td>
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>TEL.:</strong> {{ $item->karkun_phone}} </td>
                 </tr>
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
@@ -49,12 +78,16 @@
                             <div>{{ $item->bt_checkin}}</div>
                         </div>  
                     </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>CUTI:</strong> 
-                        @if ( $item->bt_leaves === 1)
-                            &#10004;
-                        @else
-                            
-                        @endif                    
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"> 
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>CUTI:</strong>  </div>
+                            <div>
+                                @if ( $item->bt_leaves === 1)
+                                    &#10004;
+                                @else
+                                @endif   
+                            </div>
+                        </div>                                          
                     </td>
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>BELANJA:</strong> {{ $item->bt_expenses}} </td>
                 </tr>
@@ -68,7 +101,12 @@
                             <div>{{ $item->bt_lastyear}}</div>
                         </div>                            
                     </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4"><strong>TEMPAT:</strong> {{ $item->bt_lastyroute}}</td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>TEMPAT:</strong>  </div>
+                            <div>{{ $item->bt_lastyroute}}</div>
+                        </div> 
+                    </td>
                 </tr>
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
@@ -77,7 +115,12 @@
                             <div>{{ $item->bt_last2year}}</div>
                         </div>   
                     </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4"><strong>TEMPAT:</strong> {{ $item->bt_last2yroute}}</td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4">
+                        <div class="grid grid-cols-2 gap-2">
+                            <div><strong>TEMPAT:</strong>  </div>
+                            <div>{{ $item->bt_last2yroute}}</div>
+                        </div>  
+                    </td>
                 </tr>
 
                 <tr class="bg-gray-50">
@@ -154,7 +197,7 @@
                                 <th class="px-4 py-2 whitespace-nowrap text-sm ">SENDIRI</th>
                                 <th class="px-4 py-2 whitespace-nowrap text-sm ">KERAJAAN</th>
                                 <th class="px-4 py-2 whitespace-nowrap text-sm ">SWASTA</th>
-                                <th class="px-4 py-2 whitespace-nowrap text-sm ">PELJAR</th>
+                                <th class="px-4 py-2 whitespace-nowrap text-sm ">PELAJAR</th>
                             </tr>                
                             <tr class="bg-white-500/10 filament-tables-selection-indicator"">
                                 <td class="px-4 py-2 whitespace-nowrap text-sm " valign="middle" align="center">
@@ -207,7 +250,7 @@
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2">
                         <div class="grid grid-cols-2 gap-2">
                             <div><strong>PASSPORT:</strong> </div>
-                            <div>{{ $item->bt_passport}}</div>
+                            <div>{{ $item->bt_pasport}}</div>
                         </div>
                     </td>
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="4">
@@ -261,13 +304,13 @@
                 </tr>
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>CADANGAN 1:</strong> {{ $item->bt_appr1_rem}} </td> 
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>TARIKH:</strong> {{ $item->bt_appr1_date}} </td>
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>PENCADANG 1:</strong> {{ $item->bt_appr1_name}} </td>
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>TARIKH:</strong> {{ $item->bt_appr1_date}} </td>
                 </tr>                
                 <tr class="bg-white-500/10 filament-tables-selection-indicator">
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>CADANGAN 2:</strong> {{ $item->bt_appr2_rem}} </td>
-                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>TARIKH:</strong> {{ $item->bt_appr2_date}} </td>
                     <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>PENCADANG 2:</strong> {{ $item->bt_appr2_name}} </td> 
+                    <td class="px-4 py-2 whitespace-nowrap text-sm" colspan="2"><strong>TARIKH:</strong> {{ $item->bt_appr2_date}} </td>
                 </tr>                
                 <tr class="bg-white-50" >
                     <td class="px-4 py-2"  style="height:200px;vertical-align:top;" colspan="6">

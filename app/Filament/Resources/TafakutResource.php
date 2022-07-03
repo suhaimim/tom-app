@@ -46,11 +46,11 @@ class TafakutResource extends Resource
                     // Forms\Components\TextInput::make('karkun_id')->label('MyKad')->required()->columnSpan(1)->maxLength(25),
                     Forms\Components\TextInput::make('karkun_phone')->label('Phone')->columnSpan(2)->maxLength(25),
                     Forms\Components\TextInput::make('bt_address')->label('Alamat')->columnSpan(2)->maxLength(255),
-                    Forms\Components\Toggle::make('bt_leaves')->label('Cuti')->columnSpan(2),
+                    Forms\Components\TextInput::make('bt_experiences')->label('Pengalaman')->maxLength(100)->columnSpan(2),   // 1T, 4B, 40H, 3H
                     Forms\Components\TextInput::make('bt_duration')->label('Tempoh')->required()->columnSpan(1)->maxLength(20),
                     Forms\Components\DatePicker::make('bt_checkin')->label('Tarikh Keluar')->columnSpan(1),
                     Forms\Components\TextInput::make('bt_expenses')->label('Belanja')->required()->maxLength(100)->columnSpan(1),
-                    Forms\Components\TextInput::make('bt_experiences')->label('Pengalaman')->maxLength(100)->columnSpan(1),   // 1T, 4B, 40H, 3H
+                    Forms\Components\Toggle::make('bt_leaves')->label('Cuti')->columnSpan(1),
                     Forms\Components\TextInput::make('bt_lastyear')->label('Tahun Lepas')->columnSpan(2)->maxLength(100),
                     Forms\Components\TextInput::make('bt_lastyroute')->label('Tempat')->columnSpan(4)->maxLength(100),
                     Forms\Components\TextInput::make('bt_last2year')->label('2 Tahun Lepas')->columnSpan(2)->maxLength(100),
@@ -89,20 +89,20 @@ class TafakutResource extends Resource
                             Forms\Components\TextInput::make('bt_mexp')->label('Pengalaman Masturat')->columnSpan(2)->maxLength(50),       // 2B, 40H, 10/15H, 3H, LN, IPB
                             Forms\Components\DatePicker::make('bt_mexp_date')->label('Tarikh')->columnSpan(2),
                             Forms\Components\TextInput::make('bt_mexp_route')->label('Tempat')->columnSpan(2)->maxLength(100),
-                            Forms\Components\TextInput::make('bt_mexp_relation')->label('Hubungan')->columnSpan(2)->maxLength(100),
                             Forms\Components\TextInput::make('bt_mexp_notes')->label('Maklumat Masturat')->columnSpan(4)->maxLength(100),
+                            Forms\Components\TextInput::make('bt_mexp_relation')->label('Hubungan')->columnSpan(2)->maxLength(100),
                         ]) 
                     ]), 
 
                     Fieldset::make('KEPUTUSAN')
                     ->schema([
                         Card::make()->columns(6)->schema([
-                            Forms\Components\TextInput::make('bt_appr1_name')->label('Nama Pencadang Tempat Sabguzari')->columnSpan(2)->maxLength(100),
-                            Forms\Components\DatePicker::make('bt_appr1_date')->label('Tarikh'),
                             Forms\Components\TextInput::make('bt_appr1_rem')->label('Cadangan 1')->columnSpan(3)->maxLength(255),
-                            Forms\Components\TextInput::make('bt_appr2_name')->label('Nama Syura Pencadang')->columnSpan(2)->maxLength(100),
-                            Forms\Components\DatePicker::make('bt_appr2_date')->label('Tarikh'),
+                            Forms\Components\DatePicker::make('bt_appr1_date')->label('Tarikh'),
+                            Forms\Components\TextInput::make('bt_appr1_name')->label('Nama Pencadang Tempat Sabguzari')->columnSpan(2)->maxLength(100),
                             Forms\Components\TextInput::make('bt_appr2_rem')->label('Cadangan 2')->columnSpan(3)->maxLength(255),
+                            Forms\Components\DatePicker::make('bt_appr2_date')->label('Tarikh'),
+                            Forms\Components\TextInput::make('bt_appr2_name')->label('Nama Syura Pencadang')->columnSpan(2)->maxLength(100),
                             Forms\Components\Textarea::make('bt_notes')->label('Nota')->columnSpan(6)->maxLength(255),                          
                         ]) 
                     ])                     
@@ -155,8 +155,7 @@ class TafakutResource extends Resource
             'index' => Pages\ListTafakuts::route('/'),
             'create' => Pages\CreateTafakut::route('/create'),
             'edit' => Pages\EditTafakut::route('/{record}/edit'),
-            'print' => Pages\PrintTafakuts::route('/print/{record}'),
-            'sort' => Pages\SortTafakuts::route('/sort/{record}'),
+            'print' => Pages\PrintTafakuts::route('/{record}/print'),
         ];
     }    
 }
