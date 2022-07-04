@@ -53,7 +53,7 @@ class Tafakut extends Model
 
     public function karkun()
     {
-        return $this->belongsTo('App\Models\Karkun','karkun_id','id');
+        return $this->belongsTo('App\Models\Karkun','karkun_id','kkid');
     }
 
     public function mohallah()

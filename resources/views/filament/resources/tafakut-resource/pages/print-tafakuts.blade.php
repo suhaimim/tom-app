@@ -1,8 +1,8 @@
-<x-filament::card>
+{{-- <x-filament::card>
 {{-- {{$this->record}} --}}
 
     {{-- <x-filament::widget> --}}
-        <table class="w-full filament-tables-table border-collapse border border-slate-400">
+        {{-- <table class="w-full filament-tables-table border-collapse border border-slate-400">
             <thead>
                 <tr class="bg-gray-50">
                     <th style="text-align: center;" colspan="6">BORANG TAFAKUT</th>
@@ -322,9 +322,15 @@
             </tbody>
             @endforeach 
         
-        </table>
+        </table> --}}
         
     {{-- </x-filament::widget> --}}
 
 
-</x-filament::card>
+{{-- </x-filament::card> --}} 
+
+<x-filament::page>
+    <x-filament::card>
+        @include('filament/resources/tafakut-resource/pages/partials/table')
+    </x-filament::card>
+</x-filament::page>

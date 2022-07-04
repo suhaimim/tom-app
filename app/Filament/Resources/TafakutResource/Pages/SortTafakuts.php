@@ -31,7 +31,7 @@ class SortTafakuts extends Page
                 )
                 ->action(function (array $data, $livewire) {
                     $fileName = $data["file_name"] ?? time()."_".$livewire->record->karkun_id;
-                    $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('filament/resources/tafakut-resource/pages/partials/print', ['record' => $this->record, 'fileName' => $fileName])->setPaper('A4', 'portrait');
+                    $pdf = \Barryvdh\DomPDF\Facade\Pdf::loadView('filament/resources/tafakut-resource/pages/partials/print', ['record' => $this->record, 'fileName' => $fileName])->setPaper('B5', 'portrait');
                     return response()->streamDownload(fn () => print($pdf->output()), "{$fileName}.pdf");
                 })
                 ->modalWidth('sm')
