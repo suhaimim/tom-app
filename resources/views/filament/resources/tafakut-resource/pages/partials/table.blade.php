@@ -167,7 +167,7 @@
                                 </td>
                                 <td class="px-4 py-2 whitespace-nowrap text-sm" valign="middle" align="center">
                                     @if ( $item->bt_amm_3h === 1)
-                                        &#10003; 
+                                    <span style="font-size:24px;"> <strong>&radic;</strong> </span>
                                     @else 
                                     @endif   
                                 </td>

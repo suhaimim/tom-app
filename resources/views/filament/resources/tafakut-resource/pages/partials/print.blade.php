@@ -15,6 +15,14 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
+        .icon {
+            display: inline-block;
+            width: 1em;
+            height: 1em;
+            stroke-width: 0;
+            stroke: currentColor;
+            fill: currentColor;
+        }        
     </style>
 </head>
 

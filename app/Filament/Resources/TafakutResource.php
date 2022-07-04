@@ -10,6 +10,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Wizard;
 use Filament\Forms\Components\Toggle;
@@ -116,8 +117,8 @@ class TafakutResource extends Resource
         return $table
       
             ->columns([
-                Tables\Columns\TextColumn::make('karkun_id')->label('Nama')->searchable()->sortable(),
-                // Tables\Columns\TextColumn::make('bt_kkid')->label('MyKad')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('karkun_name')->label('Nama')->searchable()->sortable(),
+                Tables\Columns\TextColumn::make('karkun_id')->label('MyKad')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('mohallah.sname')->label('Mohallah')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('bt_duration')->label('Tempoh')->searchable()->sortable(),
                 Tables\Columns\TextColumn::make('bt_checkin')->label('Tarikh Keluar')->searchable()->sortable(),
@@ -133,6 +134,8 @@ class TafakutResource extends Resource
                 //
             ])
             ->actions([
+                Tables\Actions\Action::make('print')->url(fn ($record) => TafakutResource::getUrl('print', ['record' => $record]))
+                ->icon('heroicon-o-printer'),
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
@@ -140,7 +143,6 @@ class TafakutResource extends Resource
             ]);
     }
 
-   
     
     public static function getRelations(): array
     {

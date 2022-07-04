@@ -19,7 +19,7 @@ class PrintTafakuts extends Page
     protected function getActions(): array
     {
         return [
-            Action::make('export')
+            Action::make('export to pdf')
                 ->form(
                     function ($livewire) {
                         return [
