@@ -156,7 +156,6 @@ class TafakutResource extends Resource
             'create' => Pages\CreateTafakut::route('/create'),
             'edit' => Pages\EditTafakut::route('/{record}/edit'),
             'print' => Pages\PrintTafakuts::route('/{record}/print'),
-            'sort' => Pages\SortTafakuts::route('/sort/{record}'),
         ];
     }    
 }
